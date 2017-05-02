@@ -3,7 +3,7 @@ import mergeBaseConfig from './rollup.merge-base-config.js';
 
 const cjsConfig = {
     format: 'umd',
-    moduleName: 'knockoutStore',
+    moduleName: 'ko.store',
     plugins: [
         babel({
             exclude: 'node_modules/**'
