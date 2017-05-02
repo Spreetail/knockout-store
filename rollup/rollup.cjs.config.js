@@ -1,19 +1,10 @@
-import babel from 'rollup-plugin-babel';
+import baseConfig from './rollup.base.config';
 
-const cjsConfig = {
-    entry: 'src/index.js',
-    external: ['knockout'],
-    globals: {
-        knockout: 'ko'
-    },
+const cjsPartialConfig = {
     format: 'cjs',
-    plugins: [
-        babel({
-            exclude: 'node_modules/**'
-        })
-    ],
     dest: 'lib/index.js'
 };
 
+const cjsConfig = Object.assign({}, baseConfig, cjsPartialConfig);
 
 export default cjsConfig;

@@ -1,19 +1,11 @@
-import babel from 'rollup-plugin-babel';
+import baseConfig from './rollup.base.config.js';
 
-const umdConfig = {
-    entry: 'src/index.js',
-    external: ['knockout'],
-    globals: {
-        knockout: 'ko'
-    },
+const umdPartialConfig = {
     format: 'umd',
     moduleName: 'ko.store',
-    plugins: [
-        babel({
-            exclude: 'node_modules/**'
-        })
-    ],
     dest: 'dist/knockout-store.js'
 };
+
+const umdConfig = Object.assign({}, baseConfig, umdPartialConfig);
 
 export default umdConfig;
