@@ -15,7 +15,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'src/**/*.js',
+      { pattern: 'src/**/*.js', included: false },
       'tests/**/*.spec.js'
     ],
 
@@ -28,8 +28,19 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'src/**/*.js': 'webpack',
-      'tests/**/*.spec.js': 'webpack'
+      'src/index.js': ['rollup'],
+      'tests/**/*.spec.js': ['rollup']
+    },
+
+    rollupPreprocessor: {
+      plugins: [
+        require('rollup-plugin-node-resolve')(),
+        require('rollup-plugin-commonjs')(),
+        require('rollup-plugin-babel')()
+      ],
+      format: 'iife',
+      moduleName: 'ko.store',
+      sourceMap: 'inline'
     },
 
 
@@ -58,7 +69,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: ['PhantomJS', 'Chrome'],
 
 
     // Continuous Integration mode
