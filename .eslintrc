@@ -1,0 +1,6 @@
+{
+    "extends": "spreetail",
+    "parserOptions": {
+        "sourceType": "module"
+    }
+}
