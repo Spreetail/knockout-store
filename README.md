@@ -5,8 +5,8 @@ and [react-redux](https://github.com/reactjs/react-redux).
 
 Managing app state is hard. While tools like Redux exist to solve this problem,
 mixing Redux and Knockout might be overkill for your app.
-Knockout already offers [observables](http://knockoutjs.com/documentation/observables.html)
-which offer a lot of the functionality provided by a [Redux store](http://redux.js.org/docs/api/Store.html),
+Knockout already has [observables](http://knockoutjs.com/documentation/observables.html)
+which offer some of the functionality provided by a [Redux store](http://redux.js.org/docs/api/Store.html),
 namely subscriptions.
 
 **knockout-store** is a tiny library offering an API for app state management in Knockout apps.
@@ -121,23 +121,21 @@ See [knockout-store-todo](https://github.com/Spreetail/knockout-store-todo).
 ### `setState(state)`
 Sets the app state to have value of `state`.
 `state` is stored in an observable, which you can access through the `getState()` method (see below).
-
-#### Arguments
-- [`state`] (_Object_): The object to store in the app state observable.
-
 For most cases, `state` will be an object made up of other observable properties.
 In situation, calling `setState` again will overwrite the object and all subscriptions will be lost.
 For this reason, it's unlikely this should be called more than once.
+
+#### Arguments
+- [`state`] (_Object_): The object to store in the app state observable.
 
 ### `getState()`
 Returns the app state observable.
 If you need to subscribe directly to the app state, you can do so with this method.
 ```javascript
-import { getState } from `getState`;
 const stateObservable = getState();
-stateObservable.subcribe((newState) => {
+stateObservable.subscribe((newState) => {
     // do something with the new state
-})
+});
 ```
 
 It's usually preferable to connect your view models to the state through the `connect()` method instead (see below).
@@ -148,7 +146,7 @@ Pass the view model to be connected to the result of this function.
 
 #### Arguments
  - [`mapStateToParams(state, [ownParams]): stateParams`] (_Function_):
- This argument is a function to map from the app state to the `stateParams` object passed to `mergeParams` (see below). `state` will be the value of the observable returned by `getState()` (see above).
+ This argument is a function to map from the app state (`state`) to the `stateParams` object passed to `mergeParams` (see below). `state` will be the value of the observable returned by `getState()` (see above).
  - [`mergeParams(stateParams, ownParams): params`] (_Function_):
  If specified, this argument is a function responsible for merging `stateParams` (the result of `mapStateToParams`, see above) and `ownParams` (the `params` object the connected view model was called with).
  If this argument is not specified, `Object.assign({}, ownParams, statePrams)` is used instead.
