@@ -13,7 +13,10 @@ namely subscriptions.
 Define your app state once using `setState`,
 and then connect your view models with the `connect` method.
 This enables developers to decouple view models from one another,
-instead giving each view model access to the app state.
+by giving each view model access to the app state instead.
+
+For a deeper understanding of the library and the motivation behind it,
+see [the wiki](https://github.com/Spreetail/knockout-store).
 
 ## Installation
 The best way to use **knockout-store** is to add it as an npm dependency.
@@ -102,6 +105,8 @@ function mapStateToParams({ selectedCat }) {
 
 export default connect(mapStateToParams)(SelectedCatDisplayViewModel);
 ```
+> Confused? Have a look at [the wiki](https://github.com/Spreetail/knockout-store)
+for a more in-depth example.
 
 ### Using the Connected View Models
 `connect` returns a wrapped view model and can be used like any other view model.
