@@ -16,7 +16,7 @@ This enables developers to decouple view models from one another,
 by giving each view model access to the app state instead.
 
 For a deeper understanding of the library and the motivation behind it,
-see [the wiki](https://github.com/Spreetail/knockout-store).
+see [the wiki](https://github.com/Spreetail/knockout-store/wiki).
 
 ## Installation
 The best way to use **knockout-store** is to add it as an npm dependency.
@@ -39,7 +39,7 @@ const knockoutStore = require('knockout-store');
 ```
 
 ### AMD
-Referencing a script in the `dist` directory on a page will add the [API](#API) methods to `ko.store`.
+Referencing a script in the `dist` directory on a page will add the [API](#api) methods to `ko.store`.
 ```html
 <script src="node_modules/knockout-store/dist/knockout-store.js"></script>
 <!-- Or... -->
@@ -52,7 +52,7 @@ ko.store.setState(someStateObject);
 ```
 
 ## Usage
-Here's a small example, skip to the [API](#API) section for details on the methods.
+Here's a small example, skip to the [API](#api) section for details on the methods.
 
 ### Setting the App State
 ```javascript
@@ -105,7 +105,7 @@ function mapStateToParams({ selectedCat }) {
 
 export default connect(mapStateToParams)(SelectedCatDisplayViewModel);
 ```
-> Confused? Have a look at [the wiki](https://github.com/Spreetail/knockout-store)
+> Confused? Have a look at [the wiki](https://github.com/Spreetail/knockout-store/wiki)
 for a more in-depth example.
 
 ### Using the Connected View Models
