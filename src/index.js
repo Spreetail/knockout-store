@@ -4,5 +4,5 @@ import { setState, getState } from './store';
 export {
     setState,
     getState,
-    connect
+    connect,
 };
