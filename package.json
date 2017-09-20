@@ -63,5 +63,8 @@
   "bugs": {
     "url": "https://github.com/Spreetail/knockout-store/issues"
   },
-  "homepage": "https://github.com/Spreetail/knockout-store#readme"
+  "homepage": "https://github.com/Spreetail/knockout-store#readme",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
 }
