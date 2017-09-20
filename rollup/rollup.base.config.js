@@ -4,13 +4,13 @@ const baseConfig = {
     entry: 'src/index.js',
     external: ['knockout'],
     globals: {
-        knockout: 'ko'
+        knockout: 'ko',
     },
     plugins: [
         babel({
-            exclude: 'node_modules/**'
-        })
-    ]
+            exclude: 'node_modules/**',
+        }),
+    ],
 };
 
 export default baseConfig;

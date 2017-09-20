@@ -2,8 +2,8 @@
   "name": "knockout-store",
   "version": "1.0.2",
   "description": "State management for Knockout apps.",
-  "main": "lib/index.js",
-  "module": "src/index.js",
+  "main": "dist/knockout-store.js",
+  "module": "dist/knockout-store.es.js",
   "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.24.1",
@@ -11,7 +11,7 @@
     "babel-preset-es2015-rollup": "^3.0.0",
     "chai": "^3.5.0",
     "eslint": "^3.19.0",
-    "eslint-config-spreetail": "^1.0.3",
+    "eslint-config-spreetail": "^2.2.0",
     "karma": "^1.6.0",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^2.1.0",
@@ -36,22 +36,21 @@
     "test-once": "karma start --single-run",
     "test-with-chrome": "karma start --browsers Chrome",
     "lint": "eslint src",
-    "build:cjs": "rollup --config rollup/rollup.cjs.config.js",
+    "build:es": "rollup --config rollup/rollup.es.config.js",
     "build:umd": "rollup --config rollup/rollup.umd.config.js",
     "build:umd:min": "rollup --config rollup/rollup.umd.min.config.js",
-    "build": "npm run build:cjs && npm run build:umd && npm run build:umd:min",
-    "clean": "rimraf lib dist",
+    "build": "npm run build:es && npm run build:umd && npm run build:umd:min",
+    "clean": "rimraf dist",
     "build-fresh": "npm run clean && npm run build",
-    "preversion": "npm run lint && npm run test-once && npm run build-fresh"
+    "preversion": "npm run lint && npm run test-once",
+    "prepublish": "npm run build-fresh"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Spreetail/knockout-store.git"
   },
   "files": [
-    "dist",
-    "lib",
-    "src"
+    "dist"
   ],
   "keywords": [
     "knockout",
