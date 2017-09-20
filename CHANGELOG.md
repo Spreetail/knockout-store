@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 2.0.0 - 2017-09-20
+### Removed
+ - CommonJS export (covered by UMD export)
+
+### Changed
+ - pkg.module now exports transpiled code
+
 ## 1.0.2 - 2017-05-05
 ### Fixed
 - README.md links
