@@ -31,14 +31,12 @@ Once installed, **knockout-store** supports several types of imports.
 import { connect, getState, setState } from 'knockout-store';
 ```
 
-### CommonJS
+### UMD Require
 ```javascript
-const { connect, getState, setState } = require('knockout-store');
-// Or...
 const knockoutStore = require('knockout-store');
 ```
 
-### AMD
+### UMD Script Tag
 Referencing a script in the `dist` directory on a page will add the [API](#api) methods to `ko.store`.
 ```html
 <script src="node_modules/knockout-store/dist/knockout-store.js"></script>
