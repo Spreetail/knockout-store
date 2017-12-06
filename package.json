@@ -1,6 +1,6 @@
 {
   "name": "knockout-store",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "State management for Knockout apps.",
   "main": "dist/knockout-store.js",
   "module": "dist/knockout-store.es.js",
@@ -52,10 +52,17 @@
     "type": "git",
     "url": "git+https://github.com/Spreetail/knockout-store.git"
   },
-  "files": ["dist", "index.d.ts"],
-  "keywords": ["knockout", "state", "store", "connect"],
-  "author":
-    "Alex Bainter <alex.bainter@spreetail.com> (https://github.com/metalex9)",
+  "files": [
+    "dist",
+    "index.d.ts"
+  ],
+  "keywords": [
+    "knockout",
+    "state",
+    "store",
+    "connect"
+  ],
+  "author": "Alex Bainter <alex.bainter@spreetail.com> (https://github.com/metalex9)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Spreetail/knockout-store/issues"
