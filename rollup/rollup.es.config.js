@@ -2,8 +2,10 @@ import baseConfig from './rollup.base.config';
 const { module } = require('../package.json');
 
 const esPartialConfig = {
+  output: {
     format: 'es',
-    dest: module,
+    file: module,
+  },
 };
 
 const esConfig = Object.assign({}, baseConfig, esPartialConfig);

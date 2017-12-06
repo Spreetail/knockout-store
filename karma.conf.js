@@ -11,7 +11,7 @@ module.exports = function(config) {
     frameworks: ['mocha', 'chai'],
 
     // list of files / patterns to load in the browser
-    files: [{ pattern: 'src/**/*.js', included: false }, 'tests/**/*.spec.js'],
+    files: [{ pattern: 'tests/**/*.spec.js', watched: false }],
 
     // list of files to exclude
     exclude: [],
@@ -29,8 +29,8 @@ module.exports = function(config) {
         require('rollup-plugin-babel')(),
       ],
       format: 'iife',
-      moduleName: 'ko.store',
-      sourceMap: 'inline',
+      name: 'ko.store',
+      sourcemap: 'inline',
     },
 
     // test results reporter to use
