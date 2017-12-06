@@ -143,13 +143,13 @@ stateObservable.subscribe((newState) => {
 
 It's usually preferable to connect your view models to the state through the `connect()` method instead (see below).
 
-### `connect(mapStateToParams, [mergeParams])`
+### `connect([mapStateToParams], [mergeParams])`
 Connects a view model to the app state.
 Pass the view model to be connected to the result of this function.
 
 #### Arguments
  - [`mapStateToParams(state, [ownParams]): stateParams`] (_Function_):
- This argument is a function to map from the app state (`state`) to the `stateParams` object passed to `mergeParams` (see below). `state` will be the value of the observable returned by `getState()` (see above).
+ If specified, this argument is a function to map from the app state (`state`) to the `stateParams` object passed to `mergeParams` (see below). `state` will be the value of the observable returned by `getState()` (see above).
  - [`mergeParams(stateParams, ownParams): params`] (_Function_):
  If specified, this argument is a function responsible for merging `stateParams` (the result of `mapStateToParams`, see above) and `ownParams` (the `params` object the connected view model was called with).
  If this argument is not specified, `Object.assign({}, ownParams, statePrams)` is used instead.
