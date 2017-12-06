@@ -15,6 +15,13 @@ const makeNullableFunctionArgInvalidTypeMessage = (arg, argName) =>
     argName
   } must be a null or a function.`;
 
+const throwIfNullabeFuctionArgNotAFunction = (arg, argName) => {
+  throwIfNotAFunction(
+    arg,
+    makeNullableFunctionArgInvalidTypeMessage(arg, argName)
+  );
+};
+
 const connect = (
   mapStateToParams = defaultMapStateToParams,
   mergeParams = defaultMergeParams
@@ -24,18 +31,11 @@ const connect = (
   const mergeParamsFunc =
     mergeParams === null ? defaultMergeParams : mergeParams;
 
-  throwIfNotAFunction(
+  throwIfNullabeFuctionArgNotAFunction(
     mapStateToParamsFunc,
-    makeNullableFunctionArgInvalidTypeMessage(
-      mapStateToParamsFunc,
-      'mapStateToParams'
-    )
+    'mapStateToParams'
   );
-
-  throwIfNotAFunction(
-    mergeParamsFunc,
-    makeNullableFunctionArgInvalidTypeMessage(mergeParamsFunc, 'mergeParams')
-  );
+  throwIfNullabeFuctionArgNotAFunction(mergeParamsFunc, 'mergeParams');
 
   return ViewModel => {
     throwIfNotAFunction(
