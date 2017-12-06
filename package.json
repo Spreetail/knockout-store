@@ -4,7 +4,10 @@
   "description": "State management for Knockout apps.",
   "main": "dist/knockout-store.js",
   "module": "dist/knockout-store.es.js",
-  "dependencies": {},
+  "types": "index.d.ts",
+  "dependencies": {
+    "@types/knockout": "^3.4.47"
+  },
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-plugin-transform-object-assign": "^6.22.0",
@@ -49,16 +52,10 @@
     "type": "git",
     "url": "git+https://github.com/Spreetail/knockout-store.git"
   },
-  "files": [
-    "dist"
-  ],
-  "keywords": [
-    "knockout",
-    "state",
-    "store",
-    "connect"
-  ],
-  "author": "Alex Bainter <alex.bainter@spreetail.com> (https://github.com/metalex9)",
+  "files": ["dist"],
+  "keywords": ["knockout", "state", "store", "connect"],
+  "author":
+    "Alex Bainter <alex.bainter@spreetail.com> (https://github.com/metalex9)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Spreetail/knockout-store/issues"
