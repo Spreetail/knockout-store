@@ -4,19 +4,44 @@ const defaultMapStateToParams = () => ({});
 const defaultMergeParams = (stateParams, ownParams) =>
   Object.assign({}, ownParams, stateParams);
 
-const connect = (mapStateToParams, mergeParams) => {
-  let mapStateToParamsFunc = mapStateToParams;
-  let mergeParamsFunc = mergeParams;
-  if (typeof mapStateToParamsFunc !== 'function') {
-    mapStateToParamsFunc = defaultMapStateToParams;
+const throwIfNotAFunction = (o, message) => {
+  if (typeof o !== 'function') {
+    throw new Error(message);
   }
-  if (typeof mergeParamsFunc !== 'function') {
-    mergeParamsFunc = defaultMergeParams;
-  }
+};
+
+const makeNullableFunctionArgInvalidTypeMessage = (arg, argName) =>
+  `Invalid type '${typeof arg}' for connect parameter ${argName}. ${
+    argName
+  } must be a null or a function.`;
+
+const connect = (
+  mapStateToParams = defaultMapStateToParams,
+  mergeParams = defaultMergeParams
+) => {
+  const mapStateToParamsFunc =
+    mapStateToParams === null ? defaultMapStateToParams : mapStateToParams;
+  const mergeParamsFunc =
+    mergeParams === null ? defaultMergeParams : mergeParams;
+
+  throwIfNotAFunction(
+    mapStateToParamsFunc,
+    makeNullableFunctionArgInvalidTypeMessage(
+      mapStateToParamsFunc,
+      'mapStateToParams'
+    )
+  );
+
+  throwIfNotAFunction(
+    mergeParamsFunc,
+    makeNullableFunctionArgInvalidTypeMessage(mergeParamsFunc, 'mergeParams')
+  );
+
   return ViewModel => {
-    if (typeof ViewModel !== 'function') {
-      throw new Error('ViewModel must be function.');
-    }
+    throwIfNotAFunction(
+      ViewModel,
+      `Invalid type '${typeof ViewModel}' for ViewModel passed to result of connect(). ViewModel must be a function.`
+    );
     return ownParams => {
       const state = getState();
       const stateParams = mapStateToParamsFunc(state(), ownParams);

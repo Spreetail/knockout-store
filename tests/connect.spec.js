@@ -27,6 +27,26 @@ describe('connect', () => {
     expect(() => connect()()).to.throw(Error);
     expect(() => connect()('not a viewmodel')).to.throw(Error);
   });
+  it('should throw an Error if called with mapStateToParams not null or a function', () => {
+    expect(() => connect()('not null or a function')).to.throw(Error);
+  });
+  it('should throw an Error if called with mergeParams not null or a function', () => {
+    expect(() => connect()(null, 'not null or a function')).to.throw(Error);
+  });
+  it('should use the default mapStateToParams if given null', () => {
+    const mergeParams = stateParams => {
+      expect(stateParams).to.eql({});
+      mergeParams.called = true;
+    };
+    expect(connect(null, mergeParams)(viewModelMock)());
+    expect(mergeParams).to.have.property('called', true);
+  });
+  it('should use the default mergeParams if given null', () => {
+    const params = { prop2: 'something', prop3: 'something else' };
+    const expectedMergedParams = Object.assign({}, {}, params);
+    const instantiatedVM = connect(null, null)(viewModelMock)(params);
+    expect(instantiatedVM.params).to.eql(expectedMergedParams);
+  });
 
   describe('mapStateToParams', () => {
     it('should map state to params', () => {
