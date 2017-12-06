@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 3.0.0 - 2017-12-06
+### Added
+ - TypeScript declaration file.
+
+### Changed
+ - `connect` throws an error if `mapStateToParams` or `mergeParams` are not `null` or a function.
+ - If `mapStateToParams` or `mergeParams` are `null`, the respective default will be used.
+ - Calling the result of `connect()` without a function (view model) will throw an `Error` instead of a `TypeError`.
+
 ## 2.0.0 - 2017-09-20
 ### Removed
  - CommonJS export (covered by UMD export)
