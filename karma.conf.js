@@ -28,8 +28,7 @@ module.exports = function(config) {
         require('rollup-plugin-commonjs')(),
         require('rollup-plugin-babel')(),
       ],
-      format: 'iife',
-      name: 'ko.store',
+      format: 'es',
       sourcemap: 'inline',
     },
 
