@@ -15,7 +15,7 @@ const connect = (mapStateToParams, mergeParams) => {
   }
   return ViewModel => {
     if (typeof ViewModel !== 'function') {
-      throw new TypeError('ViewModel must be function.');
+      throw new Error('ViewModel must be function.');
     }
     return ownParams => {
       const state = getState();
