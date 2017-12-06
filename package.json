@@ -52,16 +52,10 @@
     "type": "git",
     "url": "git+https://github.com/Spreetail/knockout-store.git"
   },
-  "files": [
-    "dist"
-  ],
-  "keywords": [
-    "knockout",
-    "state",
-    "store",
-    "connect"
-  ],
-  "author": "Alex Bainter <alex.bainter@spreetail.com> (https://github.com/metalex9)",
+  "files": ["dist", "index.d.ts"],
+  "keywords": ["knockout", "state", "store", "connect"],
+  "author":
+    "Alex Bainter <alex.bainter@spreetail.com> (https://github.com/metalex9)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Spreetail/knockout-store/issues"
