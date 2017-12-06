@@ -125,7 +125,7 @@ See [knockout-store-todo](https://github.com/Spreetail/knockout-store-todo).
 Sets the app state to have value of `state`.
 `state` is stored in an observable, which you can access through the `getState()` method (see below).
 For most cases, `state` will be an object made up of other observable properties.
-In situation, calling `setState` again will overwrite the object and all subscriptions will be lost.
+In this situation, calling `setState` again will overwrite the object and all subscriptions will be lost.
 For this reason, it's unlikely this should be called more than once.
 
 #### Arguments
@@ -143,16 +143,17 @@ stateObservable.subscribe((newState) => {
 
 It's usually preferable to connect your view models to the state through the `connect()` method instead (see below).
 
-### `connect(mapStateToParams, [mergeParams])`
+### `connect([mapStateToParams], [mergeParams])`
 Connects a view model to the app state.
 Pass the view model to be connected to the result of this function.
 
 #### Arguments
  - [`mapStateToParams(state, [ownParams]): stateParams`] (_Function_):
- This argument is a function to map from the app state (`state`) to the `stateParams` object passed to `mergeParams` (see below). `state` will be the value of the observable returned by `getState()` (see above).
+ If specified, this argument is a function to map from the app state (`state`) to the `stateParams` object passed to `mergeParams` (see below). `state` will be the value of the observable returned by `getState()` (see above).
+ If this argument is `null` or not specified, a function returning an empty object is used instead.
  - [`mergeParams(stateParams, ownParams): params`] (_Function_):
  If specified, this argument is a function responsible for merging `stateParams` (the result of `mapStateToParams`, see above) and `ownParams` (the `params` object the connected view model was called with).
- If this argument is not specified, `Object.assign({}, ownParams, statePrams)` is used instead.
+ If this argument is `null` or not specified, `Object.assign({}, ownParams, statePrams)` is used instead.
 
 ## Testing
 Run `npm run test` to start the [Karma](https://karma-runner.github.io/1.0/index.html)
