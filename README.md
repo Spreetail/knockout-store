@@ -125,7 +125,7 @@ See [knockout-store-todo](https://github.com/Spreetail/knockout-store-todo).
 Sets the app state to have value of `state`.
 `state` is stored in an observable, which you can access through the `getState()` method (see below).
 For most cases, `state` will be an object made up of other observable properties.
-In situation, calling `setState` again will overwrite the object and all subscriptions will be lost.
+In this situation, calling `setState` again will overwrite the object and all subscriptions will be lost.
 For this reason, it's unlikely this should be called more than once.
 
 #### Arguments
