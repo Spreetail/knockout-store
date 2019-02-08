@@ -1,6 +1,6 @@
 {
   "name": "knockout-store",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "State management for Knockout apps.",
   "main": "dist/knockout-store.js",
   "module": "dist/knockout-store.es.js",
