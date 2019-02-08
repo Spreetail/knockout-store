@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 3.0.2 - 2019-02-08
+### Fixed
+ - Fix package vulnerabilities that GitHub alerted us to
+
 ## 3.0.1 - 2017-12-06
 ### Fixed
  - Include TypeScript declaration file with package contents.
