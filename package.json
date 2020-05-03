@@ -43,7 +43,8 @@
     "clean": "rimraf dist",
     "build-fresh": "npm run clean && npm run build",
     "preversion": "npm run lint && npm run test-once",
-    "prepublishOnly": "npm run build-fresh"
+    "prepublishOnly": "npm run build-fresh",
+    "prettier": "prettier --write \"{{src,tests,rollup}/**/*.js,index.d.ts}\""
   },
   "repository": {
     "type": "git",
