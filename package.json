@@ -5,9 +5,7 @@
   "main": "dist/knockout-store.js",
   "module": "dist/knockout-store.es.js",
   "types": "index.d.ts",
-  "dependencies": {
-    "@types/knockout": "^3.4.67"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-plugin-transform-object-assign": "^6.22.0",
@@ -31,7 +29,7 @@
     "rollup-plugin-uglify": "^2.0.1"
   },
   "peerDependencies": {
-    "knockout": "*"
+    "knockout": "^3.5.0"
   },
   "scripts": {
     "test": "karma start",
