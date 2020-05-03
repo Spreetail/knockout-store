@@ -13,8 +13,8 @@ interface ViewModelInstantiator
     ViewModelFactoryFunction {}
 
 interface MapStateToParamsFn {
-  (
-    state?: any,
+  <T>(
+    state?: T,
     ownParams?: components.ViewModelParams
   ): components.ViewModelParams;
 }
