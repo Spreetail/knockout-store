@@ -34,7 +34,7 @@ describe('connect', () => {
     expect(() => connect()(null, 'not null or a function')).to.throw(Error);
   });
   it('should use the default mapStateToParams if given null', () => {
-    const mergeParams = stateParams => {
+    const mergeParams = (stateParams) => {
       expect(stateParams).to.eql({});
       mergeParams.called = true;
     };
@@ -125,9 +125,10 @@ describe('connect', () => {
         expect(ownParams).to.equal(params);
         mergeParamsCalled = true;
       }
-      const ConnectedViewModel = connect(mapStateToParams, mergeParams)(
-        viewModelMock
-      );
+      const ConnectedViewModel = connect(
+        mapStateToParams,
+        mergeParams
+      )(viewModelMock);
       new ConnectedViewModel(params); // eslint-disable-line no-new
       expect(mergeParamsCalled).to.be.true;
     });
@@ -141,9 +142,10 @@ describe('connect', () => {
       function mergeParams(stateParams, ownParams) {
         return ownParams;
       }
-      const ConnectedViewModel = connect(mapStateToParams, mergeParams)(
-        viewModelMock
-      );
+      const ConnectedViewModel = connect(
+        mapStateToParams,
+        mergeParams
+      )(viewModelMock);
       const { params } = new ConnectedViewModel(testParams);
       expect(params).to.equal(testParams);
     });

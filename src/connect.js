@@ -11,9 +11,7 @@ const throwIfNotAFunction = (o, message) => {
 };
 
 const makeNullableFunctionArgInvalidTypeMessage = (arg, argName) =>
-  `Invalid type '${typeof arg}' for connect parameter ${argName}. ${
-    argName
-  } must be a null or a function.`;
+  `Invalid type '${typeof arg}' for connect parameter ${argName}. ${argName} must be a null or a function.`;
 
 const throwIfNullableFuctionArgNotAFunction = (arg, argName) => {
   throwIfNotAFunction(
@@ -37,12 +35,12 @@ const connect = (
   );
   throwIfNullableFuctionArgNotAFunction(mergeParamsFunc, 'mergeParams');
 
-  return ViewModel => {
+  return (ViewModel) => {
     throwIfNotAFunction(
       ViewModel,
       `Invalid type '${typeof ViewModel}' for ViewModel passed to result of connect(). ViewModel must be a function.`
     );
-    return ownParams => {
+    return (ownParams) => {
       const state = getState();
       const stateParams = mapStateToParamsFunc(state(), ownParams);
       const mergedParams = mergeParamsFunc(stateParams, ownParams);

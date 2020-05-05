@@ -1,3 +1,8 @@
+const puppeteer = require('puppeteer');
+
+// Use Chromium executable from puppeteer to test
+process.env.CHROME_BIN = puppeteer.executablePath();
+
 // Karma configuration
 // Generated on Tue May 02 2017 14:29:01 GMT-0500 (Central Daylight Time)
 
@@ -52,7 +57,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: ['ChromeHeadless'],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
